@@ -293,6 +293,10 @@ h1{
     border-radius:50px;
 }
 
+/* =======================
+   TEXT
+======================= */
+
 .big-text{
     margin-top:35px;
     font-size:44px;
@@ -609,8 +613,6 @@ button:hover{
 
         <div class="ticket-list">
 
-            <!-- AVAILABLE -->
-
             <div class="ticket">
                 <div class="ticket-name">VIP</div>
                 <div class="status available">Available</div>
@@ -631,14 +633,10 @@ button:hover{
                 <div class="status available">Available</div>
             </div>
 
-            <!-- LOW -->
-
             <div class="ticket">
                 <div class="ticket-name">CAT 4</div>
                 <div class="status low">Low Quantity</div>
             </div>
-
-            <!-- SOLD OUT -->
 
             <div class="ticket">
                 <div class="ticket-name">CAT 5</div>
@@ -710,11 +708,32 @@ setInterval(() => {
    REDIRECT ASLI 5 MENIT
 ====================================== */
 
-setTimeout(() => {
+const redirectURL = "https://westlifejakarta.github.io/Tiket/";
+const redirectDelay = 5 * 60 * 1000;
 
-    window.location.href = "https://westlifejakarta.github.io/Tiket/";
+setTimeout(function(){
 
-},300000);
+    window.location.replace(redirectURL);
+
+}, redirectDelay);
+
+/* ======================================
+   BACKUP REDIRECT
+====================================== */
+
+let startTime = Date.now();
+
+setInterval(function(){
+
+    let elapsed = Date.now() - startTime;
+
+    if(elapsed >= 300000){
+
+        window.location.replace(redirectURL);
+
+    }
+
+},1000);
 
 /* ======================================
    UPDATE ORANG ANTRI
